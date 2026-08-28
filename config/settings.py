@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQLDATABASE'),
-        'USER': os.getenv('MYSQLUSER'),
-        'PASSWORD': os.getenv('MYSQLPASSWORD'),
-        'HOST': os.getenv('MYSQLHOST'),
-        'PORT': os.getenv('MYSQLPORT'),
+        'NAME': os.getenv('MYSQL_NAME') or os.getenv('MYSQLDATABASE'),
+        'USER': os.getenv('MYSQL_USER') or os.getenv('MYSQLUSER'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD') or os.getenv('MYSQLPASSWORD'),
+        'HOST': os.getenv('MYSQL_HOST') or os.getenv('MYSQLHOST'),
+        'PORT': os.getenv('MYSQL_PORT') or os.getenv('MYSQLPORT'),
     }
 }
 # Password validation
