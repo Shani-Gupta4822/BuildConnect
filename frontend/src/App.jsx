@@ -92,10 +92,10 @@ function getImageUrl(image) {
   }
 
   if (image.startsWith("/")) {
-    return `http://127.0.0.1:8000${image}`;
+    return `https://buildconnect-production.up.railway.app${image}`;
   }
 
-  return `http://127.0.0.1:8000/${image}`;
+  return `https://buildconnect-production.up.railway.app/${image}`;
 }
 
 function getProfessionalCost(professional, project = null) {
@@ -182,7 +182,7 @@ const [loginPassword, setLoginPassword] = useState("");
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:8000/api/estimate/", {
+    const response = await fetch("https://buildconnect-production.up.railway.app/api/estimate/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -278,7 +278,7 @@ setEstimateResult(data);
   const handleProfessionalSignup = async () => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/signup/professional/",
+      "https://buildconnect-production.up.railway.app/api/signup/professional/",
       {
         method: "POST",
         headers: {
@@ -320,7 +320,7 @@ setEstimateResult(data);
 const handleCustomerSignup = async () => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/signup/customer/",
+      "https://buildconnect-production.up.railway.app/api/signup/customer/",
       {
         method: "POST",
         headers: {
@@ -357,7 +357,7 @@ const handleCustomerSignup = async () => {
 const handleLogin = async () => {
   try {
     const response = await fetch(
-      "http://127.0.0.1:8000/api/login/",
+      "https://buildconnect-production.up.railway.app/api/login/",
       {
         method: "POST",
         headers: {
@@ -425,7 +425,7 @@ const handleProfile = async () => {
     setProfileLoading(true);
 
     const response = await fetch(
-      `http://127.0.0.1:8000/api/professionals/${user.profile_id}/`
+      `https://buildconnect-production.up.railway.app/api/professionals/${user.profile_id}/`
     );
 
     const data = await response.json();
@@ -1069,7 +1069,7 @@ const handleProfile = async () => {
                 try {
 
                   const response = await fetch(
-                    `http://127.0.0.1:8000/api/professionals/${user.profile_id}/photos/`,
+                    `https://buildconnect-production.up.railway.app/api/professionals/${user.profile_id}/photos/`,
                     {
                       method: "POST",
                       body: formData,
@@ -1117,7 +1117,7 @@ const handleProfile = async () => {
                     src={
                       photo.image.startsWith("http")
                         ? photo.image
-                        : `http://127.0.0.1:8000${photo.image}`
+                        : `https://buildconnect-production.up.railway.app${photo.image}`
                     }
                     alt="Portfolio"
                   />
@@ -1126,7 +1126,7 @@ const handleProfile = async () => {
                     onClick={async () => {
 
                       const response = await fetch(
-                        `http://127.0.0.1:8000/api/portfolio/${photo.id}/delete/`,
+                        `https://buildconnect-production.up.railway.app/api/portfolio/${photo.id}/delete/`,
                         {
                           method: "DELETE",
                         }
